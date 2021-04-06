@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-require('dotenv').config()
+require('dotenv').config({path: '.env'})
 
 let db,
 dbConnectionStr = process.env.DB_STRING,
