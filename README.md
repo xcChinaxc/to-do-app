@@ -1,5 +1,5 @@
 # My To Do App
-This is a very simple to-do CRUD application 
+This is a very simple CRUD application 
 
 ![](public/images/todoapp.jpg)
 
