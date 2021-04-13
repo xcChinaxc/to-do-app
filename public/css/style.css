@@ -1,8 +1,8 @@
 h1 {
-    color: red;
+    color: #000;
 }
 
 .completed {
     text-decoration: line-through;
-    color: gray;
+    color: rgb(128,128,128);
 }
