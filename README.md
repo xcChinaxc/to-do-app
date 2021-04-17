@@ -5,6 +5,6 @@
 
 ## How It's Made
 **Tech used:** HTML, CSS, JavaScript, Embedded JavaScript, Node.js, Express, MongoDB <br />
-**Future Plans** Authenification, adding icons, give users the ability to edit tasks, sort or hide completed to-dos.
+**Future Plans:** Authenification, adding icons, give users the ability to edit tasks, the ability to sort or hide completed to-dos, and a dark mode.
 
 ![](public/images/todoapp.jpg)
