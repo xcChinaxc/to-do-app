@@ -10,6 +10,8 @@ const connectDB = require('./config/db')
 const authRoute = require('./routes/auth')
 const homeRoute = require('./routes/home')
 const todoRoute = require('./routes/todos')
+
+// Set Port
 const PORT = process.env.PORT || 5000
 
 // Load config
@@ -51,5 +53,5 @@ app.use('/todos', todoRoute)
 
 app.listen(
   PORT, 
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 )
