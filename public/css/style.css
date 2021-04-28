@@ -1,8 +1,10 @@
-h1 {
-    color: red;
+h1{
+    color: rgb(0, 0, 0);
 }
-
-.completed {
+.completed{
     text-decoration: line-through;
-    color: gray;
+    color: rgb(128, 123, 123);
+}
+.not{
+    text-decoration: underline;
 }

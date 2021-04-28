@@ -1,6 +1,6 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('.todoItem span')
-const todoComplete = document.querySelectorAll('.todoItem span.completed')
+const todoItem = document.querySelectorAll('span.not')
+const todoComplete = document.querySelectorAll('span.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -11,17 +11,17 @@ Array.from(todoItem).forEach((el)=>{
 })
 
 Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', undo)
+    el.addEventListener('click', markIncomplete)
 })
 
 async function deleteTodo(){
-    const todoText = this.parentNode.childNodes[1].innerText
+    const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('deleteTodo', {
+        const response = await fetch('todos/deleteTodo', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'taskName': todoText
+                'todoIdFromJSFile': todoId
             })
         })
         const data = await response.json()
@@ -33,13 +33,13 @@ async function deleteTodo(){
 }
 
 async function markComplete(){
-    const todoText = this.parentNode.childNodes[1].innerText
+    const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('markComplete', {
-            method: 'put',
+        const response = await fetch('todos/markComplete', {
+            method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'taskName': todoText
+                'todoIdFromJSFile': todoId
             })
         })
         const data = await response.json()
@@ -50,14 +50,14 @@ async function markComplete(){
     }
 }
 
-async function undo(){
-    const todoText = this.parentNode.childNodes[1].innerText
+async function markIncomplete(){
+    const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('undo', {
-            method: 'put',
+        const response = await fetch('todos/markIncomplete', {
+            method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'taskName': todoText
+                'todoIdFromJSFile': todoId
             })
         })
         const data = await response.json()

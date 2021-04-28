@@ -1,0 +1,36 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do App</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>To Do</h1>
+        <ul>
+            <% for(let i=0; i < tasks.length; i++) { %>
+                <li class="todoItem">
+                <% if(tasks[i].completed === true) {%>
+                    <span class="completed"><%= tasks[i].todo %></span>
+                    <% }else{ %>
+                    <span><%= tasks[i].todo %></span>
+                    <% } %>
+                    <button class="del"> Delete </button>
+                </li>
+                <% } %>
+        </ul>
+
+        <h2> Things left to do: <%= left %> </h2>
+        
+        <form action="/createToDo" method="POST">
+            <input type="text" placeholder="add to do item" name="todoItem">
+            <button type="submit">submit</button>
+        </form>
+
+        
+        <script src="js/main.js"></script>
+    </body>
+</html>
